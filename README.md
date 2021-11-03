@@ -25,6 +25,7 @@ Content-based filtering mempelajari profil minat pengguna baru berdasarkan data 
 
 ## Data Understanding
 Dataset yang saya gunakan pada kasus ini bersumber dari kaggle [TMDB 5000 Movie Dataset](https://www.kaggle.com/tmdb/tmdb-movie-metadata/code?datasetId=138&sortBy=voteCount) untuk variabel-variabelnya antara lain:
+
 Dataset Movies:
 - `budget` - Biaya pembuatan.
 - `genre` - Genre/Aliran Film.
@@ -40,19 +41,22 @@ Dataset Movies:
 - `release_date` - Tangga rilis.
 - `revenue` - Pendapatan.
 - `runtime` - Durasi.
+- `spoken_languange` - Bahasa yang diucapkan
 - `status` - Status.
 - `tagline` - tagline.
 - `title` - Judul film.
 - `vote_average` - rata-rata nilai.
 - `vote_count` - jumlah penilai.
+
 Dataset Credits:
-- `movie_id` - id unik .
+- `movie_id` - id unik.
+- `title` - Judul film
 - `cast` - Aktor utama.
 - `crew` - Sutradara dkk.
 ### Karakteristik data
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2011.jpg)
 
-Berdasarkan gambar diatas dapat dilihat bahwa dataset terdiri dari 2 yang total yang memiliki dimensi 4803 X 22
+Berdasarkan gambar diatas dapat dilihat bahwa dataset terdiri dari 2 yang total yang memiliki dimensi 4803 X 24
 
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2012.jpg)
 
