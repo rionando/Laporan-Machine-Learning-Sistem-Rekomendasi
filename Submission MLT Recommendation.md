@@ -1,14 +1,14 @@
 # Laporan Proyek Machine Learning - Muhammad Rionando D
 
 ## Project Overview
-Pada Proyek Machine Learning Terapan 2 Sistem Rekomendasi kali ini saya memilih untuk membuat sebuah sistem rekomendasi film dengan content based filtering menggunakan TF-IDF Vectorizer dan dataset film dari The Movie Database. The Movie Database (TMDb) adalah database film yang menyediakan data-data lengkap seperti data film yang akan datang, data serial tv (TvSeries), dll. Database film dan TV yang dibuat oleh komunitas TMDb. database ini sudah ada sejak tahun 2008. data set ini kami dapat pada situs kaggle.
+Pada Proyek Machine Learning Terapan 2 Sistem Rekomendasi kali ini saya memilih untuk membuat sebuah sistem rekomendasi film dengan content based filtering menggunakan TF-IDF Vectorizer dan dataset film dari The Movie Database. The Movie Database (TMDb) adalah database film yang menyediakan data-data lengkap seperti data film yang akan datang, data serial tv (TvSeries), dll. Database film dan TV yang dibuat oleh komunitas TMDb. database ini sudah ada sejak tahun 2008. data set ini saya dapat pada situs kaggle.
 
 Proyek ini penting untuk diselesaikan melihat dari manfaatnya yaitu memberikan rekomendasi judul film berdasarkan kontennya jadi ketika kita sedang bingung mau menonton film atau series apa, project ini dapat membantu memberikan kita rekomendasi film yang relevan berdasarkan film yang kita sukai.
 
 - Berikut ini merupakan referensi yang saya gunakan mengenai sistem rekomendasi content based filtering yang saya dapatkan dari google scholar [Referensi jurnal](https://ieeexplore.ieee.org/abstract/document/9489125/)
 
 ## Business Understanding
-Pada proyek ini saya ingin membuat sebuah sistem rekomendasi film yang dapat memberikan rekomendasi film yang familiar atau mirip dengan film yang kita sukai, jadi ketika kita bingung dan tidak tau mau menonton film atau series apa proyek ini akan membantu.
+Pada proyek ini saya ingin membuat sebuah sistem rekomendasi film yang dapat memberikan rekomendasi film yang familiar atau mirip dengan film yang kita sukai, jadi ketika kita bingung dan tidak tau mau menonton film atau series apa, sistem ini akan membantu.
 
 ### Problem Statements
 1. Bagaimana cara membuat sebuah model machine learning yang berguna untuk merekomendasikan film dengan metode content based filtering?
