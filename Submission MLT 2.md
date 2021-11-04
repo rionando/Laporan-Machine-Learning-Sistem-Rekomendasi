@@ -3,7 +3,7 @@
 ## Project Overview
 Pada Proyek Machine Learning Terapan 2 Sistem Rekomendasi kali ini saya memilih untuk membuat sebuah sistem rekomendasi film dengan content based filtering menggunakan TF-IDF Vectorizer dan dataset film dari The Movie Database. The Movie Database (TMDb) adalah database film yang menyediakan data-data lengkap seperti data film yang akan datang, data serial tv (TvSeries), dll. Database film dan TV yang dibuat oleh komunitas TMDb. database ini sudah ada sejak tahun 2008. data set ini kami dapat pada situs kaggle.
 
-Proyek ini penting untuk diselesaikan melihat dari manfaatnya yaitu memberikan rekomendasi judul film berdasarkan kontennya jadi ketika kita sedang bingung mau menonton film atau series apa project ini dapat membantu memberikan anda rekomendasi film yang relevan berdasarkan film yang kalian sukai.
+Proyek ini penting untuk diselesaikan melihat dari manfaatnya yaitu memberikan rekomendasi judul film berdasarkan kontennya jadi ketika kita sedang bingung mau menonton film atau series apa, project ini dapat membantu memberikan kita rekomendasi film yang relevan berdasarkan film yang kita sukai.
 
 - Berikut ini merupakan referensi yang saya gunakan mengenai sistem rekomendasi content based filtering yang saya dapatkan dari google scholar [Referensi jurnal](https://ieeexplore.ieee.org/abstract/document/9489125/)
 
@@ -11,8 +11,8 @@ Proyek ini penting untuk diselesaikan melihat dari manfaatnya yaitu memberikan r
 Pada proyek ini saya ingin membuat sebuah sistem rekomendasi film yang dapat memberikan rekomendasi film yang familiar atau mirip dengan film yang kita sukai, jadi ketika kita bingung dan tidak tau mau menonton film atau series apa proyek ini akan membantu.
 
 ### Problem Statements
-1. Bagaimana cara membuat sebuah model machine learning yang berguna untuk merekomendasikan film dengan metode content based filtering
-2. Bagaimana hasil evaluasi dari metode content based filtering pada sistem rekomendasi film
+1. Bagaimana cara membuat sebuah model machine learning yang berguna untuk merekomendasikan film dengan metode content based filtering?
+2. Bagaimana hasil evaluasi dari metode content based filtering pada sistem rekomendasi film?
 
 ### Goals
 1. Membuat sebuah model machine learning yang berguna untuk merekomendasikan film dengan metode content based filtering
@@ -24,8 +24,19 @@ Pada proyek kali ini saya akan menggunakan metode content based filtering untuk 
 Content-based filtering mempelajari profil minat pengguna baru berdasarkan data dari objek yang telah dinilai pengguna. Algoritma ini bekerja dengan menyarankan item serupa yang pernah disukai di masa lalu atau sedang dilihat di masa kini kepada pengguna. Semakin banyak informasi yang diberikan pengguna, semakin baik akurasi sistem rekomendasi.
 
 ## Data Understanding
-Dataset yang saya gunakan pada kasus ini bersumber dari kaggle [TMDB 5000 Movie Dataset](https://www.kaggle.com/tmdb/tmdb-movie-metadata/code?datasetId=138&sortBy=voteCount) untuk variabel-variabelnya antara lain:
+Dataset yang saya gunakan pada kasus ini bersumber dari kaggle [TMDB 5000 Movie Dataset](https://www.kaggle.com/tmdb/tmdb-movie-metadata/code?datasetId=138&sortBy=voteCount)
+dan memiliki dimensi 4803 X 24
 
+### Karakteristik data
+![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2011.jpg)
+
+Berdasarkan gambar diatas dapat dilihat bahwa dataset terdiri dari 2 yang total yang memiliki dimensi 4803 X 24
+
+![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2012.jpg)
+
+Gambar diatas merupkan deskripsi lengkap dari masing-masing dataset yang digunakan
+
+Untuk variabel-variabelnya antara lain:
 Dataset Movies:
 - `budget` - Biaya pembuatan.
 - `genre` - Genre/Aliran Film.
@@ -53,14 +64,6 @@ Dataset Credits:
 - `title` - Judul film
 - `cast` - Aktor utama.
 - `crew` - Sutradara dkk.
-### Karakteristik data
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2011.jpg)
-
-Berdasarkan gambar diatas dapat dilihat bahwa dataset terdiri dari 2 yang total yang memiliki dimensi 4803 X 24
-
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2012.jpg)
-
-Gambar diatas merupkan deskripsi lengkap dari masing-masing dataset yang digunakan
 
 ## Data Preparation
 ### Menggabungkan Dataset dan Membuang variabel yang tidak digunakan
@@ -87,19 +90,19 @@ Berdasarkan gambar diatas dapat dilihat 3 top aktor adalah Samuel Jacson, Jr, da
 Berdasarkan gambar diatas dapat dilihat 3 top sutradara adalah Steven Spielberg, Woody Allen, dan MartinScorsese.
 
 ### Melakukan standarisasi data
-Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap persiapan pemodelan. Untuk fitur numerik, kita tidak akan melakukan transformasi dengan one-hot-encoding seperti pada fitur kategori. Kita akan menggunakan teknik StandarScaler dari library Scikitlearn, StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. Sekitar 68% dari nilai akan berada di antara -1 dan 1. Untuk menghindari kebocoran informasi pada data uji, kita akan menerapkan fitur standarisasi pada data latih. Kemudian, pada tahap evaluasi, kita akan melakukan standarisasi pada data uji. Untuk lebih jelasnya, mari kita terapkan StandardScaler pada
+Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap persiapan pemodelan. Untuk fitur numerik. saya akan menggunakan teknik StandarScaler dari library Scikitlearn, StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. Sekitar 68% dari nilai akan berada di antara -1 dan 1. Berikut merupakan codenya.
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/R%206.jpg)
 
 ## Modeling
 TF-IDF Vectorizer
 
-Pada tahap ini saya akan membangun sistem rekomendasi sederhana berdasarkan genre dan judul film mengguanakan TF-IDF Vectorizer. Teknik tersebut akan saya digunakan untuk menemukan representasi fitur penting dari setiap kategori film. Saya menggunakan fungsi tfidfvectorizer() dari library sklearn dan berikut adalah outputnya.
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2013.jpg)
+Pada tahap ini saya akan membangun sistem rekomendasi sederhana berdasarkan keyword atau kata kunci film menggunakan TF-IDF Vectorizer. Alasan saya kenapa menggunakan keyword adalah karena lebih detail membuat kata kunci mengenai cerita film jika dibandingkan genre. Teknik tersebut akan saya digunakan untuk menemukan representasi fitur penting dari setiap kategori film. Saya menggunakan fungsi tfidfvectorizer() dari library sklearn dan berikut adalah outputnya.
+![alternate text](https://github.com/rionando/MLT-2/blob/main/T%201.jpg)
 
 Selanjutnya, lakukan fit dan transformasi ke dalam bentuk matriks. 
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2014.jpg)
+![alternate text](https://github.com/rionando/MLT-2/blob/main/T%202.jpg)
 
-Perhatikanlah, matriks yang kita miliki berukuran (4803, 4927). 
+Perhatikanlah, matriks yang kita miliki berukuran (4803, 7168). 
 
 Untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan fungsi todense(). Jalankan kode berikut.
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2015.jpg)
@@ -113,20 +116,20 @@ Dan ini untuk output dari cosine_similarity
 
 Selanjutnya adalah Mendapatkan Rekomendasi
 Dengan membuat fungsi film_recommendations dengan code sebagai berikut
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2017.jpg)
+![alternate text](https://github.com/rionando/MLT-2/blob/main/T%203.jpg)
 
-dengan menggunakan argpartition, kita mengambil sejumlah nilai k tertinggi dari similarity data (dalam kasus ini: dataframe cosine_sim_df). Kemudian, kita mengambil data dari bobot (tingkat kesamaan) tertinggi ke terendah. Data ini dimasukkan ke dalam variabel closest. Berikutnya, kita perlu menghapus original_title yang yang dicari agar tidak muncul dalam daftar rekomendasi.
+Dengan menggunakan argpartition, saya mengambil sejumlah nilai k tertinggi dari similarity data (dalam kasus ini: dataframe cosine_sim_df). Kemudian, mengambil data dari bobot (tingkat kesamaan) tertinggi ke terendah. Data ini dimasukkan ke dalam variabel closest. Berikutnya, perlu menghapus original_title yang yang dicari agar tidak muncul dalam daftar rekomendasi.
 
-Selanjutnya saya akan mengecek akurasi dari sistem rekomendasi dengan menemukan rekomendasi film yang familiar dengan film forrest gump, berikut adalah detail informasi film forrest gump.
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2018.jpg)
+Selanjutnya saya akan mengecek akurasi dari sistem rekomendasi dengan menemukan rekomendasi film yang familiar dengan film Saving Private Ryan, berikut adalah detail informasi film Saving Private Ryan.
+![alternate text](https://github.com/rionando/MLT-2/blob/main/T%204.jpg)
 
-dilihat dari detail tersebut film forrest gump memliki genre Comedy, Drama, Romance tentunya saya berharap mendapatkan rekomendasi film dengan genre familiar.
+Dilihat dari detail tersebut filmSaving Private Ryan memliki keyword berupa War, Sel secrefice, Veteran yang intinya film bercerita mengenai perang tentunya saya berharap mendapatkan rekomendasi film yang familiar bercerita tentang perang.
 
 Berikut merupakan 5 film rekomendasi yang diberikan model.
 
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2019.jpg)
+![alternate text](https://github.com/rionando/MLT-2/blob/main/T%205.jpg)
 
-Dari hasil tersebut 4 dari 5 film memiliki genre yang relevan.
+Dari hasil tersebut 5 dari 5 film memiliki keyword yang relevan yang sama sama bercerita tentang perang.
 
 ## Evaluation
 
@@ -134,9 +137,9 @@ Karena pada kasus ini saya hanya menggunakan 1 model dan model yang digunakan ad
 
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/dos_819311f78d87da1e0fd8660171fa58e620211012160253.png)
 
-dari hasil rekomendasi pada model maka ada 4 dari 5 film yang memiliki genre yang similiar dengan forrest gump maka metrik evaluasinya adalah 4/5= 0.8
+dari hasil rekomendasi pada model maka ada 5 dari 5 film yang memiliki kata kunci cerita yang similiar dengan Saving Private Ryan maka metrik evaluasinya adalah 5/5= 1
 
-**Precision = 0.8**
+**Precision = 1**
 
 Kelebihan dari metriks ini adalah :
 - Metriks ini merupakan metrik yang paling cocok dengan model content based filtering menggunakan TF-IDF Vectorizer karena menghitung secara langsung precisison dari similaritas yang ada pada hasil rekomendasi dibanding dengan referensinya.
