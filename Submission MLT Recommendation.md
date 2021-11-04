@@ -97,7 +97,7 @@ Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap 
 ## Modeling
 TF-IDF Vectorizer
 
-Pada tahap ini saya akan membangun sistem rekomendasi sederhana berdasarkan keyword atau kata kunci film menggunakan TF-IDF Vectorizer. Alasan kenapa menggunakan keyword adalah karena keyword atau kata kunci lebih menjelaskan mengenai cerita filmnya jika dibandingkan dengan genre yang lebih umum. Teknik tersebut akan saya digunakan untuk menemukan representasi fitur penting dari setiap kategori film. Saya menggunakan fungsi tfidfvectorizer() dari library sklearn dan berikut adalah outputnya.
+Pada tahap ini saya akan membangun sistem rekomendasi sederhana berdasarkan keyword atau kata kunci film menggunakan TF-IDF Vectorizer. Alasan kenapa menggunakan keyword adalah karena keyword atau kata kunci lebih menjelaskan lebih detail mengenai filmnya jika dibandingkan dengan genre yang lebih umum. Teknik tersebut akan saya digunakan untuk menemukan representasi fitur penting dari setiap kategori film. Saya menggunakan fungsi tfidfvectorizer() dari library sklearn dan berikut adalah outputnya.
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/T%201.jpg)
 
 Selanjutnya, lakukan fit dan transformasi ke dalam bentuk matriks. 
