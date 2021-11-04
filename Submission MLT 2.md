@@ -24,6 +24,7 @@ Pada proyek kali ini saya akan menggunakan metode content based filtering untuk 
 Content-based filtering mempelajari profil minat pengguna baru berdasarkan data dari objek yang telah dinilai pengguna. Algoritma ini bekerja dengan menyarankan item serupa yang pernah disukai di masa lalu atau sedang dilihat di masa kini kepada pengguna. Semakin banyak informasi yang diberikan pengguna, semakin baik akurasi sistem rekomendasi.
 
 ## Data Understanding
+![alternate text](https://github.com/rionando/MLT-2/blob/main/T%206.jpg)
 Dataset yang saya gunakan pada kasus ini bersumber dari kaggle [TMDB 5000 Movie Dataset](https://www.kaggle.com/tmdb/tmdb-movie-metadata/code?datasetId=138&sortBy=voteCount)
 dan memiliki dimensi 4803 X 24
 
@@ -67,7 +68,7 @@ Dataset Credits:
 
 ## Data Preparation
 ### Menggabungkan Dataset dan Membuang variabel yang tidak digunakan
-Karena pada dataset yang kita gunakan terbagi menjadi 2 dataset yaitu Movies dan Credit maka untuk memudahkan proses selanjutnya saya akan menggabungkan kedua data set tersebut
+Karena pada dataset yang saya gunakan terbagi menjadi 2 dataset yaitu Movies dan Credit maka untuk memudahkan proses selanjutnya saya akan menggabungkan kedua data set tersebut
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/R%201.jpg)
 
 Selanjutnya saya juga akan membuang variabel yang tidak digunakan
@@ -102,7 +103,7 @@ Pada tahap ini saya akan membangun sistem rekomendasi sederhana berdasarkan keyw
 Selanjutnya, lakukan fit dan transformasi ke dalam bentuk matriks. 
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/T%202.jpg)
 
-Perhatikanlah, matriks yang kita miliki berukuran (4803, 7168). 
+Matriks berukuran (4803, 7168). 
 
 Untuk menghasilkan vektor tf-idf dalam bentuk matriks, menggunakan fungsi todense(). Jalankan kode berikut.
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2015.jpg)
