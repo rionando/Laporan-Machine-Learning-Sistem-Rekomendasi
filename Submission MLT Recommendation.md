@@ -130,7 +130,7 @@ Berikut merupakan 5 film rekomendasi yang diberikan model.
 
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/T%205.jpg)
 
-Dari hasil tersebut 5 dari 5 film memiliki keyword yang relevan yang sama sama bercerita tentang perang.
+Dari hasil tersebut 5 dari 5 film memiliki keyword yang relevan dengan film Saving Privat Ryan yaitu War.
 
 ## Evaluation
 
