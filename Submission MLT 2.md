@@ -124,7 +124,7 @@ Dengan menggunakan argpartition, saya mengambil sejumlah nilai k tertinggi dari 
 Selanjutnya saya akan mengecek akurasi dari sistem rekomendasi dengan menemukan rekomendasi film yang familiar dengan film Saving Private Ryan, berikut adalah detail informasi film Saving Private Ryan.
 ![alternate text](https://github.com/rionando/MLT-2/blob/main/T%204.jpg)
 
-Dilihat dari detail tersebut filmSaving Private Ryan memliki keyword berupa War, Sel secrefice, Veteran yang intinya film bercerita mengenai perang tentunya saya berharap mendapatkan rekomendasi film yang familiar bercerita tentang perang.
+Dilihat dari detail tersebut filmSaving Private Ryan memliki keyword berupa War, Self Secrefice, Veteran yang intinya film bercerita mengenai perang tentunya saya berharap mendapatkan rekomendasi film yang familiar bercerita tentang perang.
 
 Berikut merupakan 5 film rekomendasi yang diberikan model.
 
