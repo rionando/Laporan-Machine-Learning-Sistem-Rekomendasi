@@ -29,11 +29,11 @@ Dataset yang saya gunakan pada kasus ini bersumber dari kaggle [TMDB 5000 Movie 
 dan memiliki dimensi 4803 X 24
 
 ### Karakteristik data
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2011.jpg)
+![alternate text](https://github.com/rionando/MLT-2/raw/main/R%2011.jpg)
 
 Berdasarkan gambar diatas dapat dilihat bahwa dataset terdiri dari 2 yang total yang memiliki dimensi 4803 X 24
 
-![alternate text](https://github.com/rionando/MLT-2/blob/main/R%2012.jpg)
+![alternate text](https://github.com/rionando/MLT-2/raw/main/R%2012.jpg)
 
 Gambar diatas merupkan deskripsi lengkap dari masing-masing dataset yang digunakan
 
